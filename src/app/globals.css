@@ -1,26 +1,475 @@
-@import "tailwindcss";
+/* app/globals.css */
 
+/* -----------------------------
+   Design tokens (Light, calm)
+------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface2: #f6f6f7;
+  --surface3: #f2f3f5;
+
+  --text: #111827;
+  --muted: #6b7280;
+  --muted2: #9ca3af;
+
+  --border: rgba(17, 24, 39, 0.10); /* subtle, neutral */
+  --border2: rgba(17, 24, 39, 0.06);
+
+  --accent: #f59e0b; /* warm coffee */
+  --accent2: #92400e; /* deeper warm */
+
+  --radius: 18px;
+  --radius2: 14px;
+  --radius3: 12px;
+
+  --max: 1120px;
+
+  /* Rhythm */
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 18px;
+  --space-5: 22px;
+  --space-6: 28px;
+  --space-7: 36px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 88px;
+
+  /* Shadows (soft + modern) */
+  --shadow-xs: 0 1px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 14px 40px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --h1: 44px;
+  --h2: 18px;
+  --h3: 20px;
+  --body: 15px;
+  --small: 13px;
+
+  --lh-tight: 1.08;
+  --lh-body: 1.65;
+  --lh-small: 1.55;
+
+  --tracking-tight: -0.6px;
+  --tracking: -0.2px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -----------------------------
+   Base
+------------------------------ */
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #fcfcfd 0%, var(--bg) 28%, var(--bg) 100%);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.92;
+}
+
+::selection {
+  background: rgba(245, 158, 11, 0.22);
+}
+
+/* -----------------------------
+   Layout helpers
+------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* -----------------------------
+   Top bar
+------------------------------ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border2);
+}
+
+.navInner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 650;
+  letter-spacing: -0.2px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* -----------------------------
+   Buttons / badges
+------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text);
+
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btnPrimary {
+  background: var(--text);
+  border-color: rgba(17, 24, 39, 0.9);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.14);
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 14px 36px rgba(17, 24, 39, 0.18);
+}
+
+.badge {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: var(--accent2);
+}
+
+/* -----------------------------
+   Sections + rhythm
+------------------------------ */
+.section {
+  padding: var(--space-9) 0;
+}
+
+.sectionTitle {
+  font-size: var(--h2);
+  letter-spacing: var(--tracking);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.sectionDesc {
+  margin: 0 0 var(--space-6) 0;
+  color: var(--muted);
+  font-size: var(--body);
+  line-height: var(--lh-body);
+  max-width: 62ch;
+}
+
+/* -----------------------------
+   Hero
+------------------------------ */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-7);
+  align-items: center;
+  padding: var(--space-9) 0 var(--space-6);
+}
+
+.kickerRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.h1 {
+  margin: 0 0 var(--space-3) 0;
+  font-size: var(--h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.sub {
+  margin: 0 0 var(--space-4) 0;
+  color: var(--muted);
+  font-size: var(--body);
+  line-height: var(--lh-body);
+  max-width: 52ch;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+/* -----------------------------
+   Cards / surfaces
+------------------------------ */
+.card {
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.cardPad {
+  padding: var(--space-5);
+}
+
+.card + .card {
+  margin-top: var(--space-4);
+}
+
+/* Adds gentle separation between stacked blocks */
+.stack {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* -----------------------------
+   Image framing (Apple-ish)
+------------------------------ */
+.imageWrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border2);
+  background: var(--surface2);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  padding: 10px; 
+}
+
+/* Keep screenshots from feeling "too tall" on desktop */
+.imageWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 660px;
+  object-fit: contain;
+}
+
+/* If you prefer "no crop" screenshots, switch this:
+   object-fit: contain; and add padding to .imageWrap */
+.imageWrapContain img {
+  object-fit: contain;
+}
+
+/* -----------------------------
+   Zig-zag feature sections
+------------------------------ */
+.gridZigZag {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.blockTitle {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--h3);
+  letter-spacing: var(--tracking);
+}
+
+.blockText {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--body);
+  line-height: var(--lh-body);
+}
+
+.bullets {
+  margin: var(--space-3) 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: var(--body);
+  line-height: 1.7;
+}
+
+/* -----------------------------
+   Supporting cards (2-up)
+------------------------------ */
+.twoCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.thumbRow {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.thumbText h3 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: var(--tracking);
+}
+
+.thumbText p {
+  margin: var(--space-2) 0 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: var(--lh-small);
+}
+
+/* -----------------------------
+   Roadmap
+------------------------------ */
+.roadmapGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.smallLink {
+  color: var(--muted);
+  font-size: 14px;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.18);
+  padding-bottom: 2px;
+}
+
+.smallLink:hover {
+  color: var(--accent2);
+  border-bottom-color: rgba(146, 64, 14, 0.45);
+}
+
+/* -----------------------------
+   Closing CTA bar
+------------------------------ */
+.ctaBar {
+  border: 1px solid var(--border2);
+  background: linear-gradient(180deg, var(--surface), var(--surface2));
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+/* -----------------------------
+   Footer
+------------------------------ */
+.footer {
+  padding: var(--space-7) 0 var(--space-9);
+  color: var(--muted);
+  font-size: var(--small);
+  border-top: 1px solid var(--border2);
+  margin-top: var(--space-6);
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+/* -----------------------------
+   Responsive
+------------------------------ */
+@media (max-width: 920px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --h1: 38px;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-top: var(--space-7);
+  }
+
+  .gridZigZag {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmapGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .twoCards {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrap img {
+    max-height: 720px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 520px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .section {
+    padding: var(--space-8) 0;
+  }
+
+  .cardPad {
+    padding: var(--space-4);
+  }
+
+  .ctaBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions {
+    gap: 10px;
+  }
 }
