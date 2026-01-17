@@ -1,342 +1,309 @@
-// app/page.tsx
-import Image from "next/image";
+'use client'
 
-const LINKS = {
-  app: "https://brewlog.app/brew",
-  roadmap: "https://brewlog.app/roadmap",
-  feedback: "https://brewlog.app/roadmap"
-};
+import Image from 'next/image';
+import { useState } from 'react';
 
-function ArrowUpRight() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9 7H17V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+// Note: This is the full code for src/app/page.tsx based on the wireframe.
+// I've made it fully in English for simplicity. For bilingual support (English/Indonesian switch),
+// I've added a simple language toggle using useState. You can expand it with i18n libraries like next-intl if needed.
+// Content is defined in objects for easy switching.
+// Replace placeholder images with your actual cropped screenshots (e.g., in /public/images/).
+// Styles are based on your globals.css – ensure it's imported in layout.tsx.
 
-function Divider({ tight }: { tight?: boolean }) {
-  return (
-    <div
-      aria-hidden="true"
-      style={{
-        height: 1,
-        background: "rgba(17, 24, 39, 0.06)",
-        margin: tight ? "34px 0" : "54px 0"
-      }}
-    />
-  );
-}
+export default function Home() {
+  const [language, setLanguage] = useState<'en' | 'id'>('en');
 
-function Chip({ text }: { text: string }) {
-  return (
-    <div
-      style={{
-        padding: "10px 12px",
-        borderRadius: 14,
-        border: "1px solid rgba(17,24,39,0.08)",
-        background: "rgba(255,255,255,0.8)",
-        boxShadow: "0 8px 18px rgba(0,0,0,0.04)",
-        fontSize: 13,
-        color: "var(--text)",
-        display: "flex",
-        gap: 10,
-        alignItems: "center",
-        minHeight: 40
-      }}
-    >
-      <span style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(17,24,39,0.25)" }} />
-      <span>{text}</span>
-    </div>
-  );
-}
+  const content = {
+    en: {
+      nav: {
+        brand: 'Brew Logs',
+        links: ['Overview', 'Screens', 'FAQ', 'Repo'],
+        cta: 'Open App (Beta)'
+      },
+      hero: {
+        title: 'Log Brew. Repeat.',
+        subtitle: 'Track every brew. Discover your best patterns. Brew more consistently.',
+        primaryBtn: 'Open App (Beta)',
+        secondaryBtn: 'See How It Works'
+      },
+      stats: {
+        title: 'Quick Stats',
+        items: [
+          { label: 'Total Brews', value: '42' },
+          { label: 'Avg Rating', value: '8.7' },
+          { label: 'Best Brew', value: '★★★★★9' },
+          { label: 'Most Used Method', value: 'V60 (68%)' }
+        ]
+      },
+      inside: {
+        title: 'What\'s Inside Brew Logs',
+        items: [
+          'Comprehensive brew list with quick filters',
+          'Real-time live timer',
+          'Duplicate and compare previous brews',
+          'Insights: average ratings and favorite patterns'
+        ]
+      },
+      screens: {
+        title: 'Brew Logs in Action',
+        items: [
+          {
+            title: 'Neat Brew List',
+            description: 'All brews neatly recorded, with quick filters by method/beans/rating',
+            image: '/images/brew-list.avif' // Crop: Full list + search/filter bar
+          },
+          {
+            title: 'Brew Details + Comparison',
+            description: 'View full details + compare with similar previous brews',
+            image: '/images/brew-details.avif' // Crop: Single brew view + "Previous Similar Brews"
+          },
+          {
+            title: 'Quick New Brew',
+            description: 'Create new brews fast with presets and advanced options',
+            image: '/images/new-brew.avif' // Crop: New Brew form with preset ratio
+          },
+          {
+            title: 'Live Brew Timer',
+            description: 'Real-time timer + automatic step logging during brew',
+            image: '/images/live-brew.avif' // Crop: Live Brew with timer running
+          }
+          ///{
+          ///  title: 'Stats Insights',
+          ///  description: 'Quick insights: your best brews and patterns',
+          ///  image: '/images/stats.avif' // Crop: Overview stats
+          ///}
+        ]
+      },
+      cta: {
+        title: 'Ready to Brew More Consistently?',
+        subtitle: 'Open Brew Logs Beta now - free and easy to start.',
+        btn: 'Open App (Beta)'
+      },
+      faq: {
+        title: 'FAQ',
+        items: [
+          { q: 'What is Brew Logs?', a: 'A simple app to track your coffee brews for consistency.' },
+          { q: 'Works on Mobile?', a: 'Yes, fully responsive for phones.' },
+          { q: 'Why Duplicate Feature?', a: 'Easily repeat and tweak successful brews.' },
+          { q: 'Is Data Secure?', a: 'Yes, stored privately with full user control.' },
+          { q: 'Can I Export Data?', a: 'CSV and PDF exports coming soon.' }
+        ]
+      },
+      footer: {
+        copyright: '© 2026 Brew Logs',
+        links: ['GitHub', 'Contact', 'Open App']
+      }
+    },
+    id: {
+      nav: {
+        brand: 'Brew Logs',
+        links: ['Ringkasan', 'Layar', 'FAQ', 'Repo'],
+        cta: 'Buka App (Beta)'
+      },
+      hero: {
+        title: 'Log Brew. Repeat.',
+        subtitle: 'Catat setiap seduhan. Temukan pola terbaikmu. Brew lebih konsisten.',
+        primaryBtn: 'Buka App (Beta)',
+        secondaryBtn: 'Lihat Cara Kerja'
+      },
+      stats: {
+        title: 'Statistik Cepat',
+        items: [
+          { label: 'Total Brews', value: '42' },
+          { label: 'Rata-rata Rating', value: '8.7' },
+          { label: 'Brew Terbaik', value: '★★★★★9' },
+          { label: 'Metode Paling Sering', value: 'V60 (68%)' }
+        ]
+      },
+      inside: {
+        title: 'Apa yang Ada di Dalam Brew Logs',
+        items: [
+          'Daftar brew lengkap dengan filter cepat',
+          'Timer live real-time',
+          'Duplikat dan bandingkan brew sebelumnya',
+          'Insight: rating rata-rata dan pola favorit'
+        ]
+      },
+      screens: {
+        title: 'Brew Logs in Action',
+        items: [
+          {
+            title: 'Daftar Brew Rapi',
+            description: 'Semua brew tercatat rapi, dengan filter cepat by method/beans/rating',
+            image: '/images/brew-list.avif'
+          },
+          {
+            title: 'Detail Brew + Perbandingan',
+            description: 'Lihat detail lengkap + bandingkan dengan brew sebelumnya',
+            image: '/images/brew-details.avif'
+          },
+          {
+            title: 'Buat Brew Baru Cepat',
+            description: 'Buat brew baru cepat dengan preset & opsi advanced',
+            image: '/images/new-brew.avif'
+          },
+          {
+            title: 'Timer Live Brew',
+            description: 'Timer real-time + catat step otomatis saat brew',
+            image: '/images/live-brew.avif'
+          },
+          {
+            title: 'Insight Statistik',
+            description: 'Insight cepat: brew terbaikmu & pola favorit',
+            image: '/images/stats.avif'
+          }
+        ]
+      },
+      cta: {
+        title: 'Siap Brew Lebih Konsisten?',
+        subtitle: 'Buka Brew Logs Beta sekarang – gratis & mudah mulai.',
+        btn: 'Buka App (Beta)'
+      },
+      faq: {
+        title: 'FAQ',
+        items: [
+          { q: 'Apa itu Brew Logs?', a: 'Aplikasi sederhana untuk catat seduhan kopi agar konsisten.' },
+          { q: 'Bisa di HP?', a: 'Ya, sepenuhnya responsif untuk ponsel.' },
+          { q: 'Kenapa Ada Fitur Duplicate?', a: 'Mudah ulangi dan tweak brew sukses.' },
+          { q: 'Data Aman?', a: 'Ya, disimpan pribadi dengan kontrol penuh pengguna.' },
+          { q: 'Bisa Ekspor Data?', a: 'Ekspor CSV dan PDF segera hadir.' }
+        ]
+      },
+      footer: {
+        copyright: '© 2026 Brew Logs',
+        links: ['GitHub', 'Kontak', 'Buka App']
+      }
+    }
+  };
 
-function ScreenFrame({
-  src,
-  alt,
-  priority
-}: {
-  src: string;
-  alt: string;
-  priority?: boolean;
-}) {
-  return (
-    <div className="imageWrap" style={{ padding: 10 }}>
-      <Image
-        src={src}
-        alt={alt}
-        width={1200}
-        height={900}
-        priority={priority}
-        sizes="(max-width: 920px) 100vw, 520px"
-        style={{
-          width: "100%",
-          height: "auto",
-          objectFit: "contain",
-          maxHeight: 560
-        }}
-      />
-    </div>
-  );
-}
+  const lang = content[language];
 
-export default function Page() {
   return (
     <>
-      {/* Top bar */}
-      <header className="nav">
+      {/* Language Switcher – simple button in nav */}
+      <div className="nav">
         <div className="container navInner">
           <div className="brand">
-            <span>Brew Logs</span>
-            <span className="badge">Beta</span>
+            <Image src="/images/brew-logs-grey.png" alt="Logo" width={32} height={32} />
+            {lang.nav.brand}
           </div>
-
-          <nav className="navLinks">
-            <a href="#features">Features</a>
-            <a href="#screens">Screens</a>
-            <a href="#roadmap">Roadmap</a>
-          </nav>
-
-          <a className="btn btnPrimary" href={LINKS.app} target="_blank" rel="noreferrer">
-            Open <ArrowUpRight />
-          </a>
+          <div className="navLinks">
+            {lang.nav.links.map((link, i) => (
+              <a key={i} href={`#${link.toLowerCase()}`}>{link}</a>
+            ))}
+            <button className="btn btnPrimary">{lang.nav.cta}</button>
+            {/* Language Toggle */}
+            <button 
+              className="btn" 
+              onClick={() => setLanguage(language === 'en' ? 'id' : 'en')}
+            >
+              {language === 'en' ? 'ID' : 'EN'}
+            </button>
+          </div>
         </div>
-      </header>
+      </div>
 
-      <main className="container">
-        {/* Hero */}
-        <section className="heroGrid" style={{ paddingBottom: 0 }}>
+      {/* Hero Section */}
+      <section className="section" id="hero">
+        <div className="container heroGrid">
           <div>
-            <div className="kickerRow">
-              <span className="badge">Brew Log</span>
-              <span style={{ color: "var(--muted)" }}>Track your brews</span>
-            </div>
-
-            <h1 className="h1" style={{ maxWidth: 16 * 22 }}>
-              Log brew. Repeat.
-            </h1>
-
-            <p className="sub" style={{ maxWidth: 62 * 8 }}>
-              Brew Logs helps you track ratio, time, and notes — so you can repeat the good ones.
-            </p>
-
+            <h1 className="h1">{lang.hero.title}</h1>
+            <p className="sub">{lang.hero.subtitle}</p>
             <div className="actions">
-              <a className="btn btnPrimary" href={LINKS.app} target="_blank" rel="noreferrer">
-                Open App <ArrowUpRight />
-              </a>
-              <a className="btn" href="#features">
-                View Features
-              </a>
-            </div>
-
-            {/* Value chips row (ganti mini stats yang dulu, biar lebih “designed”) */}
-            <div style={{ marginTop: 18, display: "grid", gap: 10, gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
-              <Chip text="Fast log" />
-              <Chip text="Quick repeat" />
-              <Chip text="Live timer" />
-              <Chip text="Clean details" />
+              <button className="btn btnPrimary">{lang.hero.primaryBtn}</button>
+              <button className="btn">{lang.hero.secondaryBtn}</button>
             </div>
           </div>
-
-          {/* Hero screenshot: contain + max height biar nggak kebablasan */}
-          <ScreenFrame src="/images/hero.avif" alt="Brew Logs overview screen" priority />
-        </section>
-
-        <Divider />
-
-        {/* Features */}
-        <section id="features" className="section" style={{ paddingTop: 0 }}>
-          <h2 className="sectionTitle">Features</h2>
-          <p className="sectionDesc">Simple flows, clear details, quick repeat.</p>
-
-          {/* Spotlight 1 */}
-          <div className="gridZigZag" style={{ alignItems: "center" }}>
-            <div style={{ maxWidth: 520 }}>
-              <h3 className="blockTitle">New Brew</h3>
-              <p className="blockText">Log a brew in seconds.</p>
-              <ul className="bullets">
-                <li>Method, beans, dose, water</li>
-                <li>Notes and rating</li>
-                <li>Advanced details when needed</li>
-              </ul>
-            </div>
-            <ScreenFrame src="/images/new-brew.avif" alt="New Brew screen" />
+          <div className="imageWrap">
+            <Image src="/images/hero.avif" alt="Brew List Mockup" width={600} height={800}/>
           </div>
+        </div>
+      </section>
 
-          <div style={{ height: 46 }} />
-
-          {/* Spotlight 2 */}
-          <div className="gridZigZag" style={{ alignItems: "center" }}>
-            <ScreenFrame src="/images/live-brew.avif" alt="Live Brew screen" />
-            <div style={{ maxWidth: 520 }}>
-              <h3 className="blockTitle">Live Brew</h3>
-              <p className="blockText">Timer + steps while you brew.</p>
-              <ul className="bullets">
-                <li>Hot Brew / Ice Brew</li>
-                <li>Steps during pour</li>
-                <li>Ratio (Water:Dose)</li>
-              </ul>
-            </div>
+      {/* Quick Stats Section */}
+      <section className="section" id="overview">
+        <div className="container">
+          <h2 className="sectionTitle">{lang.stats.title}</h2>
+          <div className="twoCards"> {/* Reuse your twoCards class for 4 items */}
+            {lang.stats.items.map((stat, i) => (
+              <div key={i} className="card cardPad">
+                <h3 className="blockTitle">{stat.label}</h3>
+                <p className="blockText">{stat.value}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div style={{ height: 46 }} />
+      {/* What's Inside Section */}
+      <section className="section">
+        <div className="container">
+          <h2 className="sectionTitle">{lang.inside.title}</h2>
+          <ul className="bullets">
+            {lang.inside.items.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-          {/* Spotlight 3 */}
-          <div className="gridZigZag" style={{ alignItems: "center" }}>
-            <div style={{ maxWidth: 520 }}>
-              <h3 className="blockTitle">Brew Details</h3>
-              <p className="blockText">Everything in one view.</p>
-              <ul className="bullets">
-                <li>Dose, water, temp, time, ratio</li>
-                <li>Notes and rating</li>
-                <li>Duplicate to repeat</li>
-              </ul>
-            </div>
-            <ScreenFrame src="/images/brew-details.avif" alt="Brew Details screen" />
-          </div>
-
-          <div style={{ height: 56 }} />
-
-          {/* Supporting 2-up (bikin thumb lebih “jadi”) */}
-          <div className="twoCards">
-            <div className="card">
-              <div className="cardPad" style={{ padding: 18 }}>
-                <div className="thumbRow" style={{ alignItems: "center" }}>
-                  <div className="imageWrap" style={{ width: 190, flex: "0 0 auto", borderRadius: 14, padding: 8 }}>
-                    <Image
-                      src="/images/filters.avif"
-                      alt="Filters screen"
-                      width={700}
-                      height={700}
-                      sizes="190px"
-                      style={{ width: "100%", height: "auto", objectFit: "contain", maxHeight: 160 }}
-                    />
-                  </div>
-                  <div className="thumbText">
-                    <h3>Filters</h3>
-                    <p>Find brews faster.</p>
-                  </div>
+      {/* Screens Section */}
+      <section className="section" id="screens">
+        <div className="container">
+          <h2 className="sectionTitle">{lang.screens.title}</h2>
+          <div className="gridZigZag"> {/* Your grid for desktop */}
+            {lang.screens.items.map((screen, i) => (
+              <div key={i} className="card">
+                <div className="imageWrap">
+                  <Image src={screen.image} alt={screen.title} width={400} height={600} />
+                </div>
+                <div className="cardPad">
+                  <h3 className="blockTitle">{screen.title}</h3>
+                  <p className="blockText">{screen.description}</p>
                 </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="card">
-              <div className="cardPad" style={{ padding: 18 }}>
-                <div className="thumbRow" style={{ alignItems: "center" }}>
-                  <div className="imageWrap" style={{ width: 190, flex: "0 0 auto", borderRadius: 14, padding: 8 }}>
-                    <Image
-                      src="/images/beans.avif"
-                      alt="Beans screen"
-                      width={700}
-                      height={700}
-                      sizes="190px"
-                      style={{ width: "100%", height: "auto", objectFit: "contain", maxHeight: 160 }}
-                    />
-                  </div>
-                  <div className="thumbText">
-                    <h3>Beans</h3>
-                    <p>Keep your beans list.</p>
-                  </div>
-                </div>
+      {/* Mid CTA Section */}
+      <section className="section">
+        <div className="container ctaBar">
+          <div>
+            <h2 className="sectionTitle">{lang.cta.title}</h2>
+            <p className="sectionDesc">{lang.cta.subtitle}</p>
+          </div>
+          <button className="btn btnPrimary">{lang.cta.btn}</button>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section" id="faq">
+        <div className="container">
+          <h2 className="sectionTitle">{lang.faq.title}</h2>
+          <div className="stack">
+            {lang.faq.items.map((faq, i) => (
+              <div key={i} className="card cardPad">
+                <h3 className="blockTitle">{faq.q}</h3>
+                <p className="blockText">{faq.a}</p>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Divider />
-
-        {/* Screens (Gallery) — jangan giant, bikin ringkas 2x2 */}
-        <section id="screens" className="section" style={{ paddingTop: 0 }}>
-          <h2 className="sectionTitle">Screens</h2>
-          <p className="sectionDesc">A quick look at the core flow.</p>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-              gap: 14
-            }}
-          >
-            <ScreenFrame src="/images/brew-details.avif" alt="Brew Details preview" />
-            <ScreenFrame src="/images/new-brew.avif" alt="New Brew preview" />
-            <ScreenFrame src="/images/live-brew.avif" alt="Live Brew preview" />
-            <ScreenFrame src="/images/hero.avif" alt="Brew list preview" />
-          </div>
-        </section>
-
-        <Divider />
-
-        {/* Roadmap */}
-        <section id="roadmap" className="section" style={{ paddingTop: 0 }}>
-          <h2 className="sectionTitle">Roadmap</h2>
-          <p className="sectionDesc">Recently, in progress, and what’s next.</p>
-
-          <div className="roadmapGrid" style={{ alignItems: "start" }}>
-            <ScreenFrame src="/images/recipes.avif" alt="Recipes preview" />
-
-            <div style={{ maxWidth: 560 }}>
-              <h3 className="blockTitle">Next</h3>
-              <p className="blockText">Recipes and improvements based on feedback.</p>
-
-              <ul className="bullets">
-                <li>Recently: history + profile improvements</li>
-                <li>In progress: better brew details + quick repeat</li>
-                <li>Next: recipes (save and reuse)</li>
-              </ul>
-
-              <div style={{ marginTop: 14, display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <a className="btn" href={LINKS.roadmap} target="_blank" rel="noreferrer">
-                  View full roadmap <ArrowUpRight />
-                </a>
-                <a className="btn" href={LINKS.feedback} target="_blank" rel="noreferrer">
-                  Send feedback <ArrowUpRight />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Divider tight />
-
-        {/* Closing CTA */}
-        <section className="section" style={{ paddingTop: 0 }}>
-          <div className="ctaBar">
-            <div>
-              <div style={{ fontWeight: 650, marginBottom: 4 }}>Ready to use.</div>
-              <div style={{ color: "var(--muted)", fontSize: 14 }}>Open the app and start logging.</div>
-            </div>
-
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <a className="btn btnPrimary" href={LINKS.app} target="_blank" rel="noreferrer">
-                Open App <ArrowUpRight />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="footer">
-          <div>© {new Date().getFullYear()} Brew Logs ☕</div>
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <p>{lang.footer.copyright}</p>
           <div className="footerLinks">
-            <a className="smallLink" href={LINKS.roadmap} target="_blank" rel="noreferrer">
-              Roadmap
-            </a>
-            <a className="smallLink" href={LINKS.feedback} target="_blank" rel="noreferrer">
-              Feedback
-            </a>
+            {lang.footer.links.map((link, i) => (
+              <a key={i} href={`#${link.toLowerCase()}`}>{link}</a>
+            ))}
           </div>
-        </footer>
-      </main>
-
-      {/* Small responsive fix for the gallery grid */}
-      <style>{`
-        @media (max-width: 920px) {
-          #screens > div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
+        </div>
+      </footer>
     </>
   );
 }

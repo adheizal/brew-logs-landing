@@ -432,6 +432,7 @@ a:hover {
 
   .gridZigZag {
     grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 
   .roadmapGrid {
@@ -444,6 +445,7 @@ a:hover {
 
   .imageWrap img {
     max-height: 720px;
+    max-width: 100%;
   }
 }
 
