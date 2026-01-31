@@ -20,6 +20,10 @@ export async function generateMetadata({
   return {
     title: messages.meta.title,
     description: messages.meta.description,
+    icons: {
+      icon: '/icon.avif',
+      apple: '/icon.avif',
+    },
     alternates: {
       canonical: `https://brewlog.app/${locale}`,
       languages: {
@@ -34,6 +38,9 @@ export async function generateMetadata({
       siteName: 'Brew Logs',
       locale: locale,
       type: 'website',
+      images: [{
+        url: '/icon.avif',
+      }],
     },
   };
 }

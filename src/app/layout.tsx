@@ -5,11 +5,18 @@ export const metadata: Metadata = {
   title: "Brew Logs",
   description: "Track your brews. Keep it consistent.",
   metadataBase: new URL("https://brewlog.app"),
+  icons: {
+    icon: '/icon.avif',
+    apple: '/icon.avif',
+  },
   openGraph: {
     title: "Brew Logs",
     description: "Track your brews. Keep it consistent.",
     url: "https://brewlog.app",
-    type: "website"
+    type: "website",
+    images: [{
+      url: '/icon.avif',
+    }],
   }
 };
 
