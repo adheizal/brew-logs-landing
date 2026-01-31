@@ -1,7 +1,10 @@
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 
 export function CTA() {
+  const t = useTranslations('cta');
+
   return (
     <section id="cta" className="py-16 sm:py-20">
       <Container>
@@ -9,19 +12,18 @@ export function CTA() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-                Ready for your next brew?
+                {t('title')}
               </h2>
               <p className="text-lg text-zinc-600">
-                Open the app and start logging your brews.
-                Dial it in once, repeat it anytime.
+                {t('description')}
               </p>
               <p className="text-sm text-zinc-500">
-                Feedback is welcome.
+                {t('feedback')}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3 lg:justify-end">
-              <Button href="https://brewlog.app/brew">Open Brew Logs</Button>
+              <Button href="https://brewlog.app/brew">{t('button')}</Button>
             </div>
           </div>
         </div>

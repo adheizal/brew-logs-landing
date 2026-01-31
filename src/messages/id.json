@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Brew Logs",
+    "description": "Lacak brew Anda. Tetap konsisten."
+  },
+  "header": {
+    "nav": {
+      "overview": "Ikhtisar",
+      "screens": "Tampilan",
+      "faq": "FAQ"
+    },
+    "cta": "Mulai Brewing",
+    "beta": "Beta"
+  },
+  "hero": {
+    "title": "Catat brew. Ulangi.",
+    "description": "Brew Logs membantu Anda menemukan racikan terbaik dan mengulang kopi yang benar-benar enak. Catat rasio, ukuran gilingan, suhu, dan catatan — lalu seduh lagi tanpa harus menebak.",
+    "cta": {
+      "primary": "Mulai Brewing",
+      "secondary": "Lihat tampilan"
+    },
+    "footnote": "Dibuat untuk brew harian • Mobile-first",
+    "badges": {
+      "total_brews": "Total brew",
+      "avg_rating": "Rating rata-rata",
+      "filter": "Filter",
+      "duplicate": "Duplikat",
+      "live_brew": "Brew langsung"
+    }
+  },
+  "stats": {
+    "title": "Fitur",
+    "track": {
+      "name": "Catat Rasio",
+      "description": "Log rasio, gilingan, suhu"
+    },
+    "timer": {
+      "name": "Mode Timer",
+      "description": "Timer brew saat menyeduh"
+    },
+    "history": {
+      "name": "Riwayat Brew",
+      "description": "Riwayat lengkap semua brew"
+    },
+    "duplicate": {
+      "name": "Duplikat Brew",
+      "description": "Ulangi kopi enak dengan mudah"
+    }
+  },
+  "problem_solution": {
+    "title": "Konsistensi sulit jika hanya mengandalkan memori.",
+    "description": "Brew Logs menyimpan detail yang penting, sehingga Anda bisa mengulang brew enak tanpa harus mencoba mengingat apa yang Anda lakukan sebelumnya.",
+    "features": {
+      "duplicate": "Duplikat brew sebelumnya dan tweak sedikit.",
+      "filter": "Filter berdasarkan metode, biji, rating, atau tanggal.",
+      "search": "Pencarian cepat untuk menemukan brew yang Anda suka."
+    }
+  },
+  "features": {
+    "title": "Fitur di dalamnya",
+    "items": {
+      "brew_list": {
+        "title": "Daftar brew",
+        "description": "Riwayat brew lengkap Anda. Lihat detail atau duplikat untuk brew lagi."
+      },
+      "stats": {
+        "title": "Statistik cepat",
+        "description": "Total brew, rating rata-rata, kopi terbaik, dan metode yang paling sering digunakan."
+      },
+      "filter": {
+        "title": "Filter & pencarian",
+        "description": "Temukan brew berdasarkan metode, biji, rating, atau tanggal — cepat."
+      },
+      "new_brew": {
+        "title": "Brew baru",
+        "description": "Formulir yang bersih dan fokus untuk mencatat brew baru."
+      },
+      "live_brew": {
+        "title": "Brew langsung",
+        "description": "Mode real-time untuk mengikuti timer saat menyeduh."
+      },
+      "tabs": {
+        "title": "Tab: Brew / Baru / Biji / Resep",
+        "description": "Navigasi sederhana yang terasa nyaman di mobile."
+      }
+    }
+  },
+  "screens": {
+    "title": "Tampilan",
+    "description": "Didesain untuk brew harian — catat cepat, bandingkan brew, dan ulang yang berhasil.",
+    "images": {
+      "brew_details": "Layar detail brew",
+      "new_brew": "Formulir brew baru",
+      "live_brew": "Timer brew langsung"
+    }
+  },
+  "cta": {
+    "title": "Siap untuk brew berikutnya?",
+    "description": "Buka aplikasi dan mulai mencatat brew Anda. Temukan racikan sekali, ulangi kapan saja.",
+    "feedback": "Masukan sangat dip欢迎ai.",
+    "button": "Mulai Brewing"
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": {
+      "who": {
+        "question": "Ini untuk siapa?",
+        "answer": "Siapa saja yang rutin menyeduh dan ingin kopi yang lebih konsisten."
+      },
+      "mobile": {
+        "question": "Bisa dipakai di HP?",
+        "answer": "Ya. Mobile-first dan juga berfungsi baik di desktop."
+      },
+      "track": {
+        "question": "Apa saja yang dilacak?",
+        "answer": "Rasio, ukuran gilingan, suhu air, waktu seduh, rating, dan catatan — hal-hal yang penting bagi Anda."
+      },
+      "duplicate": {
+        "question": "Kenapa ada Duplikat?",
+        "answer": "Supaya Anda bisa tweak brew sebelumnya daripada mulai dari nol."
+      },
+      "offline": {
+        "question": "Bisa dipakai offline?",
+        "answer": "Ya. Setelah dimuat, bisa berjalan tanpa internet. Data Anda tetap di perangkat Anda."
+      },
+      "export": {
+        "question": "Bisa export data?",
+        "answer": "Ya. Anda bisa export semua brew Anda kapan saja — data Anda milik Anda."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Brew Logs",
+    "links": {
+      "contact": "Kontak",
+      "privacy": "Privasi",
+      "terms": "Syarat"
+    }
+  },
+  "language_switcher": {
+    "en": "EN",
+    "id": "ID"
+  }
+}

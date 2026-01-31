@@ -1,24 +1,38 @@
+import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/Container';
 
-const stats = [
-  { k: 'Total brews', v: 'Track how often you brew' },
-  { k: 'Avg rating', v: 'See how your cups average out' },
-  { k: 'Best brew', v: 'Your highest-rated cup' },
-  { k: 'Most used', v: 'Your go-to brew method' },
-];
+interface StatsProps {
+  className?: string;
+}
 
-export function Stats() {
+export function Stats({ className = '' }: StatsProps) {
+  const t = useTranslations('stats');
+
+  const features = [
+    { key: 'track', icon: '📊' },
+    { key: 'timer', icon: '⏱️' },
+    { key: 'history', icon: '📋' },
+    { key: 'duplicate', icon: '🔄' },
+  ];
+
   return (
-    <section id="overview" className="py-8">
+    <section id="overview" className={`py-8 ${className}`}>
       <Container>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((item) => (
+          {features.map((item) => (
             <div
-              key={item.k}
-              className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"
+              key={item.key}
+              className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200"
             >
-              <div className="text-sm font-medium text-zinc-600">{item.k}</div>
-              <div className="mt-1.5 text-base font-semibold text-zinc-900">{item.v}</div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">{item.icon}</span>
+                <div className="text-base font-semibold text-zinc-900">
+                  {t(`${item.key}.name`)}
+                </div>
+              </div>
+              <div className="mt-2 text-sm text-zinc-600">
+                {t(`${item.key}.description`)}
+              </div>
             </div>
           ))}
         </div>

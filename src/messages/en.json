@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Brew Logs",
+    "description": "Track your brews. Keep it consistent."
+  },
+  "header": {
+    "nav": {
+      "overview": "Overview",
+      "screens": "Screens",
+      "faq": "FAQ"
+    },
+    "cta": "Start Brewing",
+    "beta": "Beta"
+  },
+  "hero": {
+    "title": "Log brew. Repeat.",
+    "description": "Brew Logs helps you dial in your brews and repeat the cups that actually taste good. Log ratios, grind size, temp, and notes — then brew again without guessing.",
+    "cta": {
+      "primary": "Start Brewing",
+      "secondary": "See the screens"
+    },
+    "footnote": "Built for daily brews • Mobile-first",
+    "badges": {
+      "total_brews": "Total brews",
+      "avg_rating": "Avg rating",
+      "filter": "Filter",
+      "duplicate": "Duplicate",
+      "live_brew": "Live brew"
+    }
+  },
+  "stats": {
+    "title": "Features",
+    "track": {
+      "name": "Track Ratios",
+      "description": "Log ratio, grind size, temp"
+    },
+    "timer": {
+      "name": "Timer Mode",
+      "description": "Live brew timer while brewing"
+    },
+    "history": {
+      "name": "Brew History",
+      "description": "Full history of all brews"
+    },
+    "duplicate": {
+      "name": "Duplicate Brew",
+      "description": "Repeat great cups easily"
+    }
+  },
+  "problem_solution": {
+    "title": "Consistency is hard when you rely on memory.",
+    "description": "Brew Logs saves the details that matter, so you can repeat great brews without trying to remember what you did last time.",
+    "features": {
+      "duplicate": "Duplicate a previous brew and tweak it slightly.",
+      "filter": "Filter by method, beans, rating, or date.",
+      "search": "Quick search to find that one brew you liked."
+    }
+  },
+  "features": {
+    "title": "What's inside",
+    "items": {
+      "brew_list": {
+        "title": "Brew list",
+        "description": "Your full brew history. View details or duplicate to brew again."
+      },
+      "stats": {
+        "title": "Quick stats",
+        "description": "Total brews, average rating, best cup, and most-used method."
+      },
+      "filter": {
+        "title": "Filter & search",
+        "description": "Find brews by method, beans, rating, or date — fast."
+      },
+      "new_brew": {
+        "title": "New brew",
+        "description": "A clean, focused form for logging a new brew."
+      },
+      "live_brew": {
+        "title": "Live brew",
+        "description": "Real-time mode to follow your timer while brewing."
+      },
+      "tabs": {
+        "title": "Tabs: Brew / New / Beans / Recipes",
+        "description": "Simple navigation that feels great on mobile."
+      }
+    }
+  },
+  "screens": {
+    "title": "Screens",
+    "description": "Designed for daily brewing — log fast, compare brews, and repeat what works.",
+    "images": {
+      "brew_details": "Brew details screen",
+      "new_brew": "New brew form",
+      "live_brew": "Live brew timer"
+    }
+  },
+  "cta": {
+    "title": "Ready for your next brew?",
+    "description": "Open the app and start logging your brews. Dial it in once, repeat it anytime.",
+    "feedback": "Feedback is welcome.",
+    "button": "Start Brewing"
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": {
+      "who": {
+        "question": "Who is this for?",
+        "answer": "Anyone who brews regularly and wants more consistent cups."
+      },
+      "mobile": {
+        "question": "Can I use it on my phone?",
+        "answer": "Yes. It's mobile-first and works great on desktop too."
+      },
+      "track": {
+        "question": "What do you track?",
+        "answer": "Ratio, grind size, water temp, brew time, rating, and notes — the stuff you actually care about."
+      },
+      "duplicate": {
+        "question": "Why Duplicate?",
+        "answer": "So you can tweak a previous brew instead of starting from scratch."
+      },
+      "offline": {
+        "question": "Does it work offline?",
+        "answer": "Yes. Once loaded, it works without internet. Your data stays on your device."
+      },
+      "export": {
+        "question": "Can I export my data?",
+        "answer": "Yes. You can export all your brews anytime — your data is yours to keep."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Brew Logs",
+    "links": {
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  },
+  "language_switcher": {
+    "en": "EN",
+    "id": "ID"
+  }
+}

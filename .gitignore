@@ -41,3 +41,5 @@ yarn-error.log*
 next-env.d.ts
 page.tsx
 wireframes.md
+plan.md
+AGENTS.md
